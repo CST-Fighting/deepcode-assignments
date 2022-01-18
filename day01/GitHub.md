@@ -564,3 +564,17 @@ git clone 远程仓库地址
   ```
 
   
+
+### 文件的修改上传
+
+```
+1）先抓取文件
+git fetch origin（地址）
+2）修改
+3）上传
+git checkout master/其他分支
+git add 文件
+git commit -m 'updating(说明内容)'
+git push -u origin（仓库地址，要改成例如：git@github.com:CST-Fighting/deepcode-assignments.git） master/其他分支
+```
+

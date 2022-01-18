@@ -1,6 +1,10 @@
 ### 第一题:
 
+#### [1. 两数之和](https://leetcode-cn.com/problems/two-sum/)
+
 思路：一个数组nums中要两个数相加=target，可以用双层循环解决，两层循环的次数不同，外层循环为nums[i],用于控制轮数；内层循环为nums[j]，用于遍历数组中的元素，每多一次循环，j减一。
+
+内部循环依赖受控于外部循环。外部循环控制结果出现几行，内部循环控制每行出现的个数。外部循环条件为(int i = 0;i<nums.length;i++)，内部循环条件为（j=nums.length;j>i;j++）。当i=0，取值为j>0的数，以nums.length逐一递减，以此列推。
 
 例如：以一个长度为3的数组arr为例：
 
@@ -27,6 +31,8 @@ class Solution {
 
 
 ### 第二题：
+
+#### [20. 有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
 
 理解题目：括号成对
 
@@ -98,6 +104,8 @@ class Solution {
 
 
 ### 第三题：
+
+#### [709. 转换成小写字母](https://leetcode-cn.com/problems/to-lower-case/)
 
 就是用了一个toLowerCase()方法
 
