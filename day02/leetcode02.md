@@ -116,11 +116,11 @@ Right outer join: 返回y数据框中所有行以及和x数据框匹配的行，
 5）比较回文。（回文：正着跟倒着念一样。）用for循环将数组对半比较，头尾比较，向中间靠。
 
 ```
-// 方法一，使用数组
+#使用数组
 class Solution {
     public boolean isPalindrome(ListNode head) {
         int len = 0;
-        // 统计链表长度
+        #统计链表长度
         ListNode cur = head;
         while (cur != null) {
             len++;
@@ -128,12 +128,12 @@ class Solution {
         }
         cur = head;
         int[] res = new int[len];
-        // 将元素加到数组之中
+        #将元素加到数组之中
         for (int i = 0; i < res.length; i++){
             res[i] = cur.val;
             cur = cur.next;
         }
-        // 比较回文
+        #比较回文
         for (int i = 0, j = len - 1; i < j; i++, j--){
             if (res[i] != res[j]){
                 return false;
@@ -146,11 +146,12 @@ class Solution {
 ```
 
 
+  
 
-这个看着很高级，先放在这儿。
+这个看着很高级，但是那个快慢指针看不太懂（还没深入去看，ps:没时间去看），先放在这儿。
 
 ```
-// 方法二，快慢指针
+// 快慢指针
 class Solution {
     public boolean isPalindrome(ListNode head) {
         // 如果为空或者仅有一个节点，返回true
