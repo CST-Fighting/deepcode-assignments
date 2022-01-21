@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns: xmlns:>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style type="text/css">
+    .gray {
+    opacity: 0.7;
+  }
+  .cont{
+  height:400px;
+  width:400px;
+  margin:0 auto;
+  background-color:green;
+  }
+  .top{
+  height:30px;
+  background:#ff0000;
+  text-align:left;
+  }
+  .bottom{
+  width:210px;
+  text-align:left;
+  margin-left:10px;
+  }
+
+  </style>
+    <style>
+        div{
+        width:400px;
+        margin:500px;
+        border:solid 10px cadetblue;
+        }
+
+    </style>
+    <body background="C:\Users\86134\Desktop\deepcode\day05\v2-f9e75633ba6c20e66477a83b4f631253_r.jpg" ></body>
+</head>
+
+<body>
+<h1 align="center" style="color:blue">TODOLIST</h1>
+<h2 align="center " style="color:burlywood">To Develop Good Habits,Let's Do The Lists!!!</h2>
+<h3 align="center " style="color:burlywood">提示：在方框中输入事件，回车即可添加List！！！</h3>
+<div id="app">
+    <input type="text" v-on:keyup.enter="addItem" v-model="itemLabel" align="center">
+    <ul>
+        <li :class="item.check ? 'gray' : ''" v-for="(item, index) in items">
+            <input type="checkbox" v-model="item.check">
+            <center><span v-if="!item.isEdit">{{item.label}}</span></center>
+            <input v-else type="text" v-model="item.label"  v-on:keyup.enter="item.isEdit = !item.isEdit">
+            <button v-on:click="delItem(index)"  style="border:1px solid #ff9933" >删除</button>
+                <button v-on:click="item.isEdit = !item.isEdit" class="green" style="border:1px solid blue" >编辑</button>
+        </li>
+    </ul>
+</div>
+
+<script>
+    window.onload = function () {
+      var app = new Vue({
+        el: '#app',
+        data: {
+          itemLabel: '',
+          items: [{
+            label: 'a',
+            check: true,
+            isEdit: false
+          }, {
+            label: 'b',
+            check: false,
+            isEdit: false
+          }, ]
+        },
+        methods: {
+          addItem: () => {
+            app.items.push({
+              label: app.itemLabel,
+              check: false,
+              isEdit: false
+            })
+            app.itemLabel = ''
+          },
+          delItem: (index) => {
+            app.items.splice(index, 1)
+          }
+        },
+      })
+    }
+  </script>
+</body>
+
+</html>
+</body>
+</html>
