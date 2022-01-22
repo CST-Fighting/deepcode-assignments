@@ -1,4 +1,6 @@
-21.合并两个链表https://leetcode-cn.com/problems/merge-two-sorted-lists/comments/
+#### 21.合并两个链表
+
+https://leetcode-cn.com/problems/merge-two-sorted-lists/comments/
 
 解题思路：
 
@@ -64,7 +66,22 @@ class Solution {
 
 #### [53. 最大子数组和](https://leetcode-cn.com/problems/maximum-subarray/)
 
-```
+1)基本思路：每加一个数就跟没加这个数之前的和进行比较，如果加了这个数之后这个和比之前的小了，那么保留之前那个数，然后加了的那个数的和继续往下加一个数，然后再次跟最初的那个比较，以此类推。（核心思想：贪心算法）
 
+```java
+class Solution {
+    public int maxSubArray(int[] nums) {
+     int result =Integer.MIN_VALUE;
+     int sum = 0;
+     for(int i=0;i<nums.length;i++){
+         sum += nums[i];
+         result = Math.max(result,sum);
+         if(sum < 0){
+             sum = 0;
+         }
+     }
+     return result;
+    }
+}
 ```
 
